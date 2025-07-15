@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login - Voice Authentication</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body class="gradient-bg">
+  <div class="card">
+    <h1 class="title"><span class="icon">🔐</span> Login</h1>
+
+    <form id="loginForm" enctype="multipart/form-data" method="post" action="/login">
+      <input type="text" name="username" placeholder="Enter your username" required />
+      <input type="password" name="password" placeholder="Enter your password" required />
+
+      <h3>🎤 Voice Login</h3>
+      <p>Say your login phrase clearly</p>
+
+      <div id="recIndicator" class="rec-indicator hidden">🔴 Recording...</div>
+
+      <div class="btn-row">
+        <button type="button" onclick="startRecording()" class="btn green">Start Recording</button>
+        <button type="button" onclick="stopRecording()" class="btn red">Stop & Upload</button>
+      </div>
+
+      <input type="hidden" name="audio_data" id="audioData" />
+      <button type="submit" class="btn blue">Login</button>
+    </form>
+
+    <p style="text-align:center;">Don't have an account? <a href="/register">Register here</a></p>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
